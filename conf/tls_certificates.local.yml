@@ -20,6 +20,8 @@ tls:
       keyFile: "/etc/traefik/certs/dev-sidia.test.key"
     - certFile: "/etc/traefik/certs/dev-tracerstudy.test.crt"
       keyFile: "/etc/traefik/certs/dev-tracerstudy.test.key"
+    - certFile: "/etc/traefik/certs/bufferlink.test.crt"
+      keyFile: "/etc/traefik/certs/bufferlink.test.key"
 
 
 
