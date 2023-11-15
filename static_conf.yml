@@ -6,13 +6,22 @@ log:
 entryPoints:
   web:
     address: ":80"
-    http:
-      redirections: # http to https redirection
-        entryPoint:
-          to: websecure
-          scheme: https
+    #    http:
+    #  redirections: # http to https redirection
+    #       entryPoint:
+    #          to: websecure
+    #         scheme: https
   websecure:
     address: ":443"
+
+certificatesResolvers:
+  letsEncrypt:
+    acme:
+      email: hia.develop@gmail.com
+      storage: /etc/traefik/acme/acme.json
+      httpChallenge:
+        # used during the challenge
+        entryPoint: web
 
 # configure providers
 providers:

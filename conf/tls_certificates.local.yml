@@ -12,6 +12,9 @@ tls:
       keyFile: "/etc/traefik/certs/dev-tracerstudy.test.key"
     - certFile: "/etc/traefik/certs/bufferlink.test.crt"
       keyFile: "/etc/traefik/certs/bufferlink.test.key"
+    - certFile: "/etc/traefik/certs/mybut.test.crt"
+      keyFile: "/etc/traefik/certs/mybut.test.key"
+
 
 
 
