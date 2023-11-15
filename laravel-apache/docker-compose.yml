@@ -1,0 +1,29 @@
+version: '3.5'
+
+services:
+  laravel-app:
+    build:
+      context: '.'
+      args:
+        uid: ${UID}
+    container_name: laravel-app
+    ports:
+      - 8000:80
+    environment:
+      - APACHE_RUN_USER=#1000
+      - APACHE_RUN_GROUP=#1000
+    volumes:
+      - .:/var/www/html
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=proxy
+      - traefik.http.routers.mybut.entrypoints=websecure
+      - traefik.http.routers.mybut.rule=Host(`mybut.test`)
+      - traefik.http.routers.mybut.tls=true
+        #- traefik.http.routers.testapp-router.service=testapp-service
+      - traefik.http.services.mybut.loadbalancer.server.port=80
+    networks:
+      - proxy
+networks:
+  proxy:
+    external: true
